@@ -68,7 +68,7 @@ set/get
 toString()
 constructor
 
-Supermarket
+Supermar ket
 ------------
 name (String)
 address(String)
