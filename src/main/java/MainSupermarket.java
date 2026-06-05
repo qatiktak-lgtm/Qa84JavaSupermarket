@@ -17,40 +17,55 @@ public class MainSupermarket {
 
         Supermarket lidl = new Supermarket("WallMart", "Herzel 20, Rehovot");
 
-        lidl.addProduct(p10,10);
-        lidl.addProduct(p9,5);
-        lidl.addProduct(p8,100);
-        lidl.addProduct(p7,80);
-        lidl.addProduct(p6,50);
-        lidl.addProduct(p5,20);
-        lidl.addProduct(p4,200);
-        lidl.addProduct(p3,400);
-        lidl.addProduct(p2,150);
-        lidl.addProduct(p1,90);
-
-        lidl.printProducts();
-        Product p11 = new Product("Fresh Potatoes", 2005, "kg", 1.1);
-        lidl.addProduct(p11,33);
-
-        Product p12 = new Product("Fresh Potatoes", 2060, "kg", 0.8);
-        lidl.addProduct(p12,77);
+        lidl.addProduct(p10, 10);
+        lidl.addProduct(p9, 5);
+        lidl.addProduct(p8, 100);
+        lidl.addProduct(p7, 80);
+        lidl.addProduct(p6, 50);
+        lidl.addProduct(p5, 20000);
+        lidl.addProduct(p4, 200);
+        lidl.addProduct(p3, 400);
+        lidl.addProduct(p2, 150);
+        lidl.addProduct(p1, 90);
 
         lidl.printProducts();
 
-        lidl.removeProduct(2005,10);
-        lidl.printProducts();
-        lidl.removeProduct(2006,10);
-        lidl.printProducts();
+//        Product p11 = new Product("Fresh Potatoes", 2005, "kg", 1.1);
+//        lidl.addProduct(p11,33);
+//
+//        Product p12 = new Product("Fresh Potatoes", 2060, "kg", 0.8);
+//        lidl.addProduct(p12,77);
+//
+//        lidl.printProducts();
+//
+//        lidl.removeProduct(2005,10);
+//        lidl.printProducts();
+//        lidl.removeProduct(2006,10);
+//        lidl.printProducts();
+//
+//        lidl.reducePrice(2005, 50);
+//        lidl.printProducts();
 
-        lidl.reducePrice(2005, 50);
+//        lidl.sortProductsBy(ISortingCriteria.SORT_BY_PRICE);
+//        lidl.printProducts();
+//        lidl.sortProductsBy(ISortingCriteria.SORT_BY_CODE_REVERSE);
+//        lidl.printProducts();
+//        lidl.sortProductsBy(ISortingCriteria.SORT_BY_NAME_REVERSE);
+//        lidl.printProducts();
+//        lidl.sortProductsBy(ISortingCriteria.SORT_BY_PRICE_REVERSE);
+//        lidl.printProducts();
+//        lidl.sortProductsBy(ISortingCriteria.SORT_BY_CODE);
+//        lidl.printProducts();
+//        lidl.sortProductsBy(ISortingCriteria.SORT_BY_NAME);
+//        lidl.printProducts();
+        lidl.findProduct(6011);
+        lidl.removeProductFromStock(6011);
+        lidl.findProduct(6011);
         lidl.printProducts();
+        lidl.reducePriceForALl(50.0);
+        lidl.printProducts();
+        System.out.println("The total cost of the items in the store is, USD: " + lidl.totalCost());
 
-        lidl.sortProductsBy(ISortingCriteria.SORT_BY_PRICE);
-        lidl.printProducts();
-        lidl.sortProductsBy(ISortingCriteria.SORT_BY_CODE_REVERSE);
-        lidl.printProducts();
-        lidl.sortProductsBy(ISortingCriteria.SORT_BY_NAME_REVERSE);
-        lidl.printProducts();
     }
 }
 

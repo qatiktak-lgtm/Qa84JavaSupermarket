@@ -97,17 +97,65 @@ public class Supermarket {
                 stock.sort(comp1);
                 break;
             case ISortingCriteria.SORT_BY_NAME_REVERSE:
-                ComparatorProductsByNameReverse comp2 =
-                        new ComparatorProductsByNameReverse();
+                ComparatorProductsByNameReverse comp2 = new ComparatorProductsByNameReverse();
                 stock.sort(comp2);
                 break;
             case ISortingCriteria.SORT_BY_CODE_REVERSE:
-                ComparatorProductsByCodeReverse comp3 =
-                        new ComparatorProductsByCodeReverse();
+                ComparatorProductsByCodeReverse comp3 = new ComparatorProductsByCodeReverse();
                 stock.sort(comp3);
+                break;
+            case ISortingCriteria.SORT_BY_PRICE_REVERSE:
+                ComparatorProductByPriceReverse comp4 = new ComparatorProductByPriceReverse();
+                stock.sort(comp4);
+                break;
+            case ISortingCriteria.SORT_BY_CODE:
+                ComparatorProductsByCode comp5 = new ComparatorProductsByCode();
+                stock.sort(comp5);
+                break;
+            case ISortingCriteria.SORT_BY_NAME:
+                ComparatorProductsByName comp6 = new ComparatorProductsByName();
+                stock.sort(comp6);
+                break;
         }
 
 
     }
 
+    public void findProduct(int code) {
+        for (Product pr : stock) {
+            if (pr.getCode() == code) {
+                System.out.printf("Found item, code #: " + code + "\n" + "-".repeat(25) + "\n ");
+                System.out.println(pr);
+                System.out.println("_".repeat(80));
+                return;
+            }
+
+        }
+        System.out.println("No product with code: " + code);
+    }
+
+    public void removeProductFromStock(int code) {
+        Product fakeProduct = new Product("", code, "", 0.0);
+        stock.remove(fakeProduct);
+    }
+
+    public void reducePriceForALl(double percent){
+        for (Product pr : stock) {
+                double price = pr.getPrice();
+                double discount = (price * percent) / 100;
+                price -= discount;
+                pr.setPrice(price);
+        }
+    }
+
+    public double totalCost(){
+        double tcost = 0.0;
+        for (Product pr: stock){
+            double q = pr.getQuantity();
+            double p = pr.getPrice();
+            double cost = (q * p);
+            tcost += cost;
+        }
+        return tcost;
+    }
 }
