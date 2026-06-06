@@ -58,7 +58,9 @@ public class Supermarket {
 
         System.out.println("*".repeat(80));
     }
-
+//метод уменьшает количество товара на значение указанное в quantity,
+// если получится отрицательное значение то установит значение = 0.
+    // если товара с таким кодом нет - выдаст сообщение
     public void removeProduct(int code, double quantity) {
         for (Product pr : stock) {
             if (pr.getCode() == code) {
@@ -74,7 +76,7 @@ public class Supermarket {
         System.out.println("Wrong code!!!! " + code);
         System.out.println("________________");
     }
-
+// метод снижает стоимость товара по коду на значение указанное в percent
     public void reducePrice(int code, double percent) {
         for (Product pr : stock) {
             if (pr.getCode() == code) {
@@ -116,11 +118,19 @@ public class Supermarket {
                 ComparatorProductsByName comp6 = new ComparatorProductsByName();
                 stock.sort(comp6);
                 break;
+            case ISortingCriteria.SORT_BY_QUANTITY_REVERSE:
+                ComparatorProductByQuantityReverse comp7 = new ComparatorProductByQuantityReverse();
+                stock.sort(comp7);
+                break;
+                case ISortingCriteria.SORT_BY_QUANTITY:
+                ComparatorProductByQuantity comp8 = new ComparatorProductByQuantity();
+                stock.sort(comp8);
+                break;
         }
 
 
     }
-
+//поиск продукта по коду
     public void findProduct(int code) {
         for (Product pr : stock) {
             if (pr.getCode() == code) {
@@ -135,8 +145,15 @@ public class Supermarket {
     }
 
     public void removeProductFromStock(int code) {
-        Product fakeProduct = new Product("", code, "", 0.0);
-        stock.remove(fakeProduct);
+//        Product fakeProduct = new Product("", code, "", 0.0);
+//        stock.remove(fakeProduct);
+        //второй вариант
+        for(Product pr: stock){
+            if (pr.getCode() == code){
+                stock.remove(pr);
+                return;
+            }
+        }
     }
 
     public void reducePriceForALl(double percent){
@@ -151,11 +168,24 @@ public class Supermarket {
     public double totalCost(){
         double tcost = 0.0;
         for (Product pr: stock){
-            double q = pr.getQuantity();
-            double p = pr.getPrice();
-            double cost = (q * p);
-            tcost += cost;
+//            double q = pr.getQuantity();
+//            double p = pr.getPrice();
+//            double cost = (q * p);
+//            tcost += cost;
+            tcost += (pr.getQuantity() * pr.getPrice());
         }
         return tcost;
     }
 }
+
+
+/*
+public void removeProductFromStock(int code){
+    for (Product pr : stock) {
+        if(pr.getCode() == code) {
+            stock.remove(pr);
+            return;
+        }
+    }
+    }
+ */

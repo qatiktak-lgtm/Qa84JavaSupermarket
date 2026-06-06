@@ -38,8 +38,8 @@ public class MainSupermarket {
 //
 //        lidl.printProducts();
 //
-//        lidl.removeProduct(2005,10);
-//        lidl.printProducts();
+        lidl.removeProduct(2005,10);
+        lidl.printProducts();
 //        lidl.removeProduct(2006,10);
 //        lidl.printProducts();
 //
@@ -58,13 +58,20 @@ public class MainSupermarket {
 //        lidl.printProducts();
 //        lidl.sortProductsBy(ISortingCriteria.SORT_BY_NAME);
 //        lidl.printProducts();
+//        lidl.sortProductsBy(ISortingCriteria.SORT_BY_QUANTITY);
+//        lidl.printProducts();
+//        lidl.sortProductsBy(ISortingCriteria.SORT_BY_QUANTITY_REVERSE);
+//        lidl.printProducts();
         lidl.findProduct(6011);
         lidl.removeProductFromStock(6011);
         lidl.findProduct(6011);
         lidl.printProducts();
-        lidl.reducePriceForALl(50.0);
-        lidl.printProducts();
-        System.out.println("The total cost of the items in the store is, USD: " + lidl.totalCost());
+//        lidl.reducePriceForALl(50.0);
+//        lidl.printProducts();
+        //System.out.println("The total cost of the items in the store is, USD: " + lidl.totalCost());
+        System.out.printf(java.util.Locale.of("en", "US"),
+                "The total cost of the items in the store: %,.2f EUR" +
+                        "\n", lidl.totalCost());
 
     }
 }
