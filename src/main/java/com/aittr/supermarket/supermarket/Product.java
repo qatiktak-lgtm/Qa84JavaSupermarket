@@ -19,7 +19,7 @@ public class Product implements Comparable<Product> {
         String firstLine = String.format("| Name: %-22s | Code: %-7d | Price: %-8.2f | Unit: %-6s |",
                 name, code, price, unit);
 
-        // Вторая строчка для количества (делаем отступ, чтобы совпадало по ширине с "Name:")
+        // Вторая строчка для количества (делаем отступ, чтобы совпадало по  ширине с "Name:")
         String secondLine = String.format("\n|   Quantity: %-65.1f |", quantity);
 
         return firstLine + secondLine;
