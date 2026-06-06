@@ -48,15 +48,19 @@ public class Supermarket {
     }
 
     public void printProducts() {
-        System.out.println("*".repeat(80));
-        System.out.println("Sutermarket: " + name);
-        System.out.println("Adress: " + address);
-        System.out.println("\t\t\tStock: ");
+        System.out.println();
+        System.out.println("~".repeat(80));
+        //System.out.println(String.format("\n|   Supermarket: %-65.1f |") + name); // "|| Supermarket: " + name);
+        System.out.printf("||                %-15s %-44s ||\n", "Supermarket:", name);
+        System.out.printf("||                %-15s %-44s ||\n", "Adress:", address);
+        System.out.printf("||   %-73s ||\n", "Stock:");
+        System.out.println("~".repeat(80));
         for (Product pr : stock) {
             System.out.println(pr);
         }
 
-        System.out.println("*".repeat(80));
+        System.out.println("~".repeat(80));
+        System.out.println();
     }
 //метод уменьшает количество товара на значение указанное в quantity,
 // если получится отрицательное значение то установит значение = 0.
@@ -134,7 +138,7 @@ public class Supermarket {
     public void findProduct(int code) {
         for (Product pr : stock) {
             if (pr.getCode() == code) {
-                System.out.printf("Found item, code #: " + code + "\n" + "-".repeat(25) + "\n ");
+                System.out.printf("Found item, code #: " + code + "\n" + "-".repeat(25) + "\n");
                 System.out.println(pr);
                 System.out.println("_".repeat(80));
                 return;

@@ -15,7 +15,7 @@ public class MainSupermarket {
         Product p9 = new Product("Milk Chocolate Bar", 7003, "pcs", 1.50);
         Product p10 = new Product("Sunflower Oil", 8055, "pcs", 2.99);
 
-        Supermarket lidl = new Supermarket("WallMart", "Herzel 20, Rehovot");
+        Supermarket lidl = new Supermarket("GasroNom :-b 55", "Herzel 20, Rehovot");
 
         lidl.addProduct(p10, 10);
         lidl.addProduct(p9, 5);

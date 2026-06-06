@@ -11,13 +11,27 @@ public class Product implements Comparable<Product> {
 
     @Override
     public String toString() {
-        String str = "| Name: " + name
-                + " | Code : " + code
-                + " | Price: " + price
-                + " | Unit: " + unit
-                + "\n|   Quantity: " + quantity;
-        return str;
+        // %-25s  -> выровнять строку по левому краю и добить пробелами до 25 символов
+        // %-7d   -> выровнять целое число, ширина 7 символов
+        // %-8.2f -> выровнять дробное число (цена), 2 знака после запятой, ширина 8 символов
+        // %-6s   -> выровнять единицу измерения, ширина 6 символов
+
+        String firstLine = String.format("| Name: %-22s | Code: %-7d | Price: %-8.2f | Unit: %-6s |",
+                name, code, price, unit);
+
+        // Вторая строчка для количества (делаем отступ, чтобы совпадало по ширине с "Name:")
+        String secondLine = String.format("\n|   Quantity: %-65.1f |", quantity);
+
+        return firstLine + secondLine;
     }
+//    public String toString() {
+//        String str = "| Name: " + name
+//                + " | Code : " + code
+//                + " | Price: " + price
+//                + " | Unit: " + unit + "\t\t\t\t\t|"
+//                + "\n|\tQuantity: " + quantity;
+//        return str;
+//    }
 
 
     public Product(String name, int code, String unit, double price) {
